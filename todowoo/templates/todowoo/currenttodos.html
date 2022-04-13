@@ -1,0 +1,13 @@
+{% extends 'todowoo/base.html' %}
+
+{% block content %}
+    <ul>
+        {% for todo in todos %}
+            {% if todo.important %}
+                <li><b><a href="{% url 'viewtodo' todo.id %}">{{ todo.title }}</a></b>{% if todo.meno %} - {{ todo.meno }}{% endif %}</li>
+            {% else %}
+                <li><a href="{% url 'viewtodo' todo.id %}">{{ todo.title }}</a>{% if todo.meno %} - {{ todo.meno }}{% endif %}</li>
+            {% endif %}
+        {% endfor %}
+    </ul>
+{% endblock %}

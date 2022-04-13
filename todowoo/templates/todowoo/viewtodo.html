@@ -1,0 +1,11 @@
+{% extends 'todowoo/base.html' %}
+
+{% block content %}
+    {{ todo.title }}
+    <h2>{{ error }}</h2>
+    <form method="post" action="">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Change ToDo!</button>
+    </form>
+{% endblock %}
